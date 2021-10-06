@@ -1,2 +1,2 @@
 # git-ci
-SHRI Homework React
+Yandex SHRI Homework #2 (React)
