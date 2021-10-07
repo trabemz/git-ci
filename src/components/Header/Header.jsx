@@ -1,7 +1,18 @@
 import {React} from 'react';
+import {PropTypes} from 'prop-types';
 
-export function Header(){
+import './Header.css';
+
+export function Header({children}){
   return (
-    <header className='header'>Header</header>
+    <header className='header'>
+      <div className='container header__container'>
+        {children}
+      </div>
+    </header>
   );
+}
+
+Header.propTypes = {
+  children: PropTypes.node
 }
