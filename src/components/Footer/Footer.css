@@ -22,4 +22,10 @@
 }
 
 @media (min-width: 320px) {
+  .footer__container {
+    padding: 8px 0;
+  }
+  .footer__link {
+    margin-right: 12px;
+  }
 }

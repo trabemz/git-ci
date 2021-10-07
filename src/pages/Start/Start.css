@@ -1,0 +1,25 @@
+.start {
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin-top: -33px;
+}
+
+.start__section {
+  width: 264px;
+  height: 248px;
+}
+
+.start__section svg {
+  margin: 0 0 32px;
+}
+
+.start__section p {
+  margin: 0 0 24px;
+}
+
+button {
+  width: 123px;
+  height: 36px;
+}
