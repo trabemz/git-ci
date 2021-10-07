@@ -1,0 +1,8 @@
+:root {
+  --color-bg-action: #ffcc00;
+  --color-bg-action-hovered: #f2c200;
+
+  --color-border-action-focused: #b38f00;
+
+  --color-text: #000000;
+}
