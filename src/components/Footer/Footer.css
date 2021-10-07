@@ -1,0 +1,25 @@
+.footer {
+  background-color: var(--color-bg-footer);
+}
+.footer__container {
+  padding: 12px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+}
+.footer__links {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+.footer__link {
+  margin-right: 8px;
+}
+.footer__copyright {
+  display: block;
+  white-space: nowrap;
+}
+
+@media (min-width: 320px) {
+}

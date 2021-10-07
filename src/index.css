@@ -1,11 +1,19 @@
 body {
   margin: 0;
-  font-family: 'YS Text', sans-serif;
+  font-family: "YS Text", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 13px;
+  line-height: 16px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  max-width: 824px;
+  margin: 0 16px;
+}
+
+@media (min-width: 856px) {
+  .container {
+    margin: 0 auto;
+  }
 }
