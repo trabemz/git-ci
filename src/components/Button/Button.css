@@ -1,0 +1,31 @@
+.button {
+  color: var(--color-text-primary);
+  line-height: 36px;
+  padding: 0 20px;
+  background-color: var(--color-bg-control);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: var(--color-bg-control-hovered);
+}
+.button:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--color-border-control-focused);
+}
+.button:disabled {
+  background-color: var(--color-bg-disabled);
+  color: var(--color-text-disabled);
+}
+
+.button--action {
+  background-color: var(--color-bg-action);
+}
+.button--action:hover {
+  background-color: var(--color-bg-action-hovered);
+}
+.button--action:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--color-border-action-focused);
+}

@@ -3,7 +3,6 @@
   display: grid;
   justify-content: center;
   align-content: center;
-  margin-top: -33px;
 }
 
 .start__section {
@@ -11,15 +10,11 @@
   height: 248px;
 }
 
-.start__section svg {
+.start__configure-logo {
   margin: 0 0 32px;
 }
 
-.start__section p {
+.start__text {
   margin: 0 0 24px;
-}
-
-button {
-  width: 123px;
-  height: 36px;
+  line-height: 16.25px;
 }

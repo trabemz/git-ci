@@ -1,0 +1,9 @@
+.tool-button {
+  line-height: 28px;
+  padding: 0 13px 0 0;
+}
+.tool-button__icon {
+  padding: 8px;
+  width: 12px;
+  vertical-align: middle;
+}
