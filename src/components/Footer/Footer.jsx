@@ -1,10 +1,10 @@
 import {React} from 'react';
-import Link from '../Link/Link';
-import Copyright from '../Copyright/Copyright';
+import {Link} from '../Link/Link';
+import {Copyright} from '../Copyright/Copyright';
 
 import './Footer.css'
 
-export default function Footer() {
+export function Footer() {
   const links = [
     { title: 'Support', url: '/'},
     { title: 'Learning', url: '/'},

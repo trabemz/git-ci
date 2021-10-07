@@ -3,7 +3,7 @@ import {PropTypes} from 'prop-types';
 
 import './Copyright.css';
 
-export default function Copyright(props) {
+export function Copyright(props) {
   const {children, className} = props;
   const currYear = new Date().getFullYear();
   return (

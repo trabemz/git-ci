@@ -5,10 +5,7 @@ export function settingsReducer(state, { type, payload }) {
       return {
         ...state,
         isSetted: true,
-        repository: payload.repository,
-        buildCommand: payload.buildCommand,
-        branch: payload.branch,
-        synchronizeInterval: payload.synchronizeInterval,
+        ...payload,
       };
     default:
       return state;

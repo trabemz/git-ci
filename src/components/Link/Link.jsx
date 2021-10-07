@@ -4,7 +4,7 @@ import {PropTypes} from 'prop-types';
 
 import './Link.css';
 
-export default function Link(props) {
+export function Link(props) {
   const {url = '/', children, className} = props;
   return (
     <ReactLink to={url} className={`link ${className}`}>{children}</ReactLink>
