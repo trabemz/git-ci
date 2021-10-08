@@ -3,12 +3,16 @@
   justify-content: space-between;
   padding: 15px 0;
 }
-.header__logo {
+.header__title {
   margin: 0;
   color: var(--color-text-secondary);
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;
+}
+
+.header__title--primary {
+  color: var(--color-text-primary);
 }
 
 @media (min-width: 320px) {
