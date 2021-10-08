@@ -19,8 +19,12 @@
 .button:disabled {
   background-color: var(--color-bg-disabled);
   color: var(--color-text-disabled);
+  cursor: not-allowed;
 }
-
+.button:disabled:hover {
+  background-color: var(--color-bg-disabled);
+  color: var(--color-text-disabled);
+}
 .button--action {
   background-color: var(--color-bg-action);
 }

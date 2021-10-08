@@ -1,0 +1,42 @@
+.settings__form .input__container {
+  margin-bottom: 18px;
+  width: 100%;
+  max-width: 474px;
+}
+.settings__form .inline-input__field {
+  width: 52px;
+  margin: 0 8px;
+}
+.settings__synchronize {
+  margin: 20px 0;
+}
+.settings__title {
+  margin: 8px 0;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+}
+.settings__description {
+  margin: 0;
+}
+.settings__form {
+  margin: 22px 0;
+}
+.settings__buttons button {
+  width: 100%;
+  margin-bottom: 12px;
+}
+.settings__error {
+  margin-top: 22px;
+  color: var(--color-required);
+}
+
+@media (min-width: 320px) {
+  .settings__buttons button {
+    margin: 0 8px 0 0;
+    width: min-content;
+  }
+  .settings__synchronize {
+    margin: 20px 0 24px;
+  }
+}
