@@ -1,11 +1,43 @@
 .tool-button {
   line-height: 28px;
-  padding: 0 13px 0 0;
+  padding: 0;
+}
+.tool-button__icon-container {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
 }
 .tool-button__icon {
-  padding: 8px;
-  width: 12px;
   vertical-align: middle;
 }
 .tool-button--collapsed {
+  padding: 0;
+  margin-left: 8px;
+}
+.tool-button--collapsed .tool-button__text,
+.tool-button__text {
+  display: none;
+}
+.tool-button--collapsed .tool-button__icon-container {
+  width: 28px;
+  height: 28px;
+}
+
+@media (min-width: 321px) {
+  .tool-button__text {
+    display: inline-block;
+  }
+  .tool-button {
+    padding: 0 13px 0 0;
+  }
+  .tool-button--collapsed {
+    padding: 0;
+  }
+  .tool-button__icon-container {
+    width: 25px;
+  }
+  .tool-button--collapsed .tool-button__icon-container {
+    width: 28px;
+    height: 28px;
+  }
 }

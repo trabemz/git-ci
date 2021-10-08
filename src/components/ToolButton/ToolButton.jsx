@@ -6,8 +6,12 @@ import './ToolButton.css';
 export function ToolButton({modificator, text, handleClick = Function.prototype, children}){
   const btnModificator = modificator ? `tool-button--${modificator}` : '';
   return <button type='button' className={`button tool-button ${btnModificator}`} onClick={handleClick}>
-      {children}
-      {text}
+      <span className='tool-button__icon-container'>
+        {children}
+      </span>
+      <span className='tool-button__text'>
+        {text}
+      </span>
     </button>
 }
 

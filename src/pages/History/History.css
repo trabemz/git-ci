@@ -1,0 +1,12 @@
+.header__tool-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-width: 64px;
+}
+
+@media (min-width: 321px) {
+  .header__tool-buttons {
+    min-width: 133px;
+  }
+}
