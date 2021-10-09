@@ -1,3 +1,3 @@
 export const settingsActionTypes = {
-  setSettings: "SET_SETTINGS",
+  setSettings: 'SET_SETTINGS',
 };

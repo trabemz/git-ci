@@ -43,8 +43,8 @@
   margin-bottom: 8px;
 }
 .build__branch:before {
-  content: "";
-  background-image: url("../../assets/icons/commit.svg");
+  content: '';
+  background-image: url('../../assets/icons/commit.svg');
   background-size: cover;
   height: 8px;
   width: 16px;
@@ -64,8 +64,8 @@
   width: 16px;
 }
 .build__author:before {
-  content: "";
-  background-image: url("../../assets/icons/user.svg");
+  content: '';
+  background-image: url('../../assets/icons/user.svg');
   background-size: cover;
   height: 16px;
   width: 16px;
@@ -84,8 +84,8 @@
   margin-bottom: 8px;
 }
 .build__date:before {
-  content: "";
-  background-image: url("../../assets/icons/calendar.svg");
+  content: '';
+  background-image: url('../../assets/icons/calendar.svg');
   background-size: cover;
   height: 16px;
   width: 16px;
@@ -109,8 +109,8 @@
   margin-left: 20px;
 }
 .build__buildTime:before {
-  content: "";
-  background-image: url("../../assets/icons/stopwatch.svg");
+  content: '';
+  background-image: url('../../assets/icons/stopwatch.svg');
   background-size: cover;
   height: 16px;
   width: 14px;
