@@ -3,7 +3,7 @@ import {React, useState, useContext} from 'react';
 import { SettingsContext } from '../../store/settingsContext';
 import {Input} from '../../components/Input/Input';
 import {Button} from '../../components/Button/Button';
-import {InlineInput} from '../../components/InlineInput/InlineInput'
+import {InlineInput} from '../../components/InlineInput/InlineInput';
 
 import './Settings.css';
 import { useHistory } from 'react-router';
@@ -82,8 +82,8 @@ export function Settings(){
                 <Button text='Cancel' handleClick={handleCancel} disabled={isPending}/>
               </div>
               {
-                 errors.map((error, index) => (
-                  <p className='settings__error' key={index}>{error}</p>
+                 errors.map((error) => (
+                  <p className='settings__error' key={error}>{error}</p>
                 ))
               }
           </form>

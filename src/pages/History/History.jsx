@@ -6,7 +6,8 @@ import { ReactComponent as SettingsIcon } from '../../assets/icons/settings.svg'
 import { ReactComponent as RunIcon } from '../../assets/icons/play.svg';
 import {Build} from '../../components/Build/Build';
 import {buildsMock} from './buildsMock';
-import {Button} from '../../components/Button/Button'
+import {Button} from '../../components/Button/Button';
+import {RunBuildModal} from '../../components/RunBuildModal/RunBuildModal';
 
 import './History.css';
 import { SettingsContext } from '../../store/settingsContext';
@@ -14,6 +15,8 @@ import { SettingsContext } from '../../store/settingsContext';
 export function History(){
   const history = useHistory();
   const {repository, isSetted} = useContext(SettingsContext);
+
+  const [showModal, setShowModal] = useState(false);
 
   if(!isSetted){
     history.push('/');
@@ -24,6 +27,11 @@ export function History(){
   }
 
   const handleRunClick = () => {
+    setShowModal(true);
+  }
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   }
 
   const handleShowMore = () => {
@@ -51,12 +59,14 @@ export function History(){
       </Header>
       <main className='container history'>
         {
+          /*when there are real builds, rewrite the key to id*/
           builds && builds.length > 0 && builds.map((build, index) => (
             <Build key={index} {...build}/>
           ))
         }
         <Button text='Show more' handleClick={handleShowMore}/>
       </main>
+      {showModal && <RunBuildModal handleClose={handleCloseModal}/>}
     </>
   );
 }
