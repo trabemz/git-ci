@@ -1,5 +1,6 @@
 import { Header } from '../../components/Header/Header';
-import { React, useContext, useEffect, useState } from 'react';
+import { React, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { ToolButton } from '../../components/ToolButton/ToolButton';
 import { ReactComponent as SettingsIcon } from '../../assets/icons/settings.svg';
@@ -10,11 +11,11 @@ import { Button } from '../../components/Button/Button';
 import { RunBuildModal } from '../../components/RunBuildModal/RunBuildModal';
 
 import './History.css';
-import { SettingsContext } from '../../store/settingsContext';
 
 export function History() {
   const history = useHistory();
-  const { repository, isConfigured } = useContext(SettingsContext);
+
+  const { repository, isConfigured } = useSelector((state) => state.settings);
 
   const [showModal, setShowModal] = useState(false);
 

@@ -1,12 +1,14 @@
 import { Header } from '../../components/Header/Header';
-import { React, useState, useContext } from 'react';
-import { SettingsContext } from '../../store/settingsContext';
+import { React, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import { InlineInput } from '../../components/InlineInput/InlineInput';
+import { useHistory } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { setSettings } from '../../store/settingsSlice';
 
 import './Settings.css';
-import { useHistory } from 'react-router';
 
 const emulateRepositoryCheck = async () => {
   await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -15,7 +17,8 @@ const emulateRepositoryCheck = async () => {
 
 export function Settings() {
   const history = useHistory();
-  const settings = useContext(SettingsContext);
+  const settings = useSelector((state) => state.settings);
+  const dispatch = useDispatch();
 
   const [repository, setRepository] = useState(settings.repository);
   const [buildCommand, setBuildCommand] = useState(settings.buildCommand);
@@ -51,12 +54,14 @@ export function Settings() {
     const resultOk = await emulateRepositoryCheck();
 
     if (resultOk) {
-      settings.setSettings({
-        repository,
-        buildCommand,
-        branch,
-        synchronizeInterval,
-      });
+      dispatch(
+        setSettings({
+          repository,
+          buildCommand,
+          branch,
+          synchronizeInterval,
+        }),
+      );
       history.push('/history');
     } else {
       setErrors((errors) => [...errors, 'Some error with GitHub repository.']);
