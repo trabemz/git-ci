@@ -1,5 +1,5 @@
 import {Header} from '../../components/Header/Header';
-import {React, useState, useContext, useEffect} from 'react';
+import {React, useState, useContext} from 'react';
 import { SettingsContext } from '../../store/settingsContext';
 import {Input} from '../../components/Input/Input';
 import {Button} from '../../components/Button/Button';
@@ -10,7 +10,7 @@ import { useHistory } from 'react-router';
 
 const emulateRepositoryCheck = async () => {
   await new Promise(resolve => setTimeout(resolve, 2000));
-  return Math.random() < 0.5;
+  return Math.random() < 0.8;
 } 
 
 export function Settings(){
@@ -23,16 +23,19 @@ export function Settings(){
   const [synchronizeInterval, setSynchronizeInterval] = useState(settings.synchronizeInterval);
 
   const [isPending, setIsPending] = useState(false);
-  const [errors, setErrors] = useState(new Array());
-  
-  useEffect(() => {console.log(errors)}, [errors]);
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = async () => {
-    setIsPending(true);
-    setErrors(new Array());
+    setErrors([]);
     console.log(repository);
     if(!repository || !buildCommand){
       setErrors((errors) => [...errors, 'GitHub repository name and build command should be provided.']);
+      setIsPending(false);
+      return
+    }
+
+    if(isNaN(synchronizeInterval)){
+      setErrors((errors) => [...errors, 'Synchronize interval should be a number.']);
       setIsPending(false);
       return
     }
@@ -50,6 +53,7 @@ export function Settings(){
     } else {
       setErrors((errors) => [...errors, 'Some error with GitHub repository.']);
     }
+
     setIsPending(false);
   };
 
@@ -67,8 +71,10 @@ export function Settings(){
           <h2 className='settings__title'>Settings</h2>
           <p className='settings__description'>Configure repository connection and synchronization settings.</p>
           <form className='settings__form'>
-              <Input name='repository' label='GitHub repository' required value={repository} setValue={setRepository} placeholder='user-name/repo-name'/>
-              <Input name='buildCommand' label='Build command' required value={buildCommand} setValue={setBuildCommand} placeholder='npm command'/>
+              <Input name='repository' label='GitHub repository' required value={repository} 
+                setValue={setRepository} placeholder='user-name/repo-name'/>
+              <Input name='buildCommand' label='Build command' required value={buildCommand} 
+                setValue={setBuildCommand} placeholder='npm command'/>
               <Input name='branch' label='Main branch' value={branch} setValue={setBranch} placeholder='branch-name'/>
               <p className='settings__synchronize'>Synchronize every<InlineInput name='synchronizeInterval' value={synchronizeInterval} setValue={setSynchronizeInterval}/>minutes</p>
               <div className='settings__buttons'>
@@ -77,7 +83,7 @@ export function Settings(){
               </div>
               {
                  errors.map((error, index) => (
-                  <p className='settings__error' key={index}>	&#183; {error}</p>
+                  <p className='settings__error' key={index}>{error}</p>
                 ))
               }
           </form>

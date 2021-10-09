@@ -1,4 +1,4 @@
-export const commits = [
+export const buildsMock = [
   {
     id: 1368,
     message: "add documentation for postgres scaler",
@@ -6,7 +6,7 @@ export const commits = [
     hash: "9c9f0b9",
     author: "Philip Kirkorov",
     date: 1611187560,
-    buildTime: 4800,
+    buildTime: 3600,
     status: "done",
   },
   {
@@ -26,7 +26,7 @@ export const commits = [
     hash: "b4636ab",
     author: "Philip Kirkorov",
     date: 1611187560,
-    buildTime: 4800,
+    buildTime: 1200,
     status: "done",
   },
   {
@@ -50,7 +50,7 @@ export const commits = [
     status: "done",
   },
   {
-    id: 1367,
+    id: 1369,
     message: "replace all `div` to `article`",
     branch: "master",
     hash: "952e5567",

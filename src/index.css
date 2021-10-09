@@ -26,6 +26,7 @@ body {
 
 @media (min-width: 856px) {
   .container {
+    width: 824px;
     margin: 0 auto;
   }
 }

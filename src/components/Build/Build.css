@@ -1,0 +1,167 @@
+.build {
+  padding: 16px 12px 4px 16px;
+  box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3),
+    0px 1px 1px rgba(67, 68, 69, 0.3);
+  border-radius: 6px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}
+.build__commit-container {
+  display: flex;
+}
+.build__icon-container {
+  grid-row: 1 / span 2;
+  margin-right: 8px;
+}
+.build__information-container {
+  display: grid;
+}
+.build__id {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 8px;
+  display: block;
+}
+.build__id--done {
+  color: var(--color-text-commit-done);
+}
+.build__id--fail {
+  color: var(--color-text-commit-fail);
+}
+.build__id--pending {
+  color: var(--color-text-commit-pending);
+}
+.build__title {
+  display: block;
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+.build__head-container {
+  margin-bottom: 8px;
+}
+.build__branch:before {
+  content: "";
+  background-image: url("../../assets/icons/commit.svg");
+  background-size: cover;
+  height: 8px;
+  width: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  opacity: 0.3;
+}
+.build__branch {
+  margin-right: 4px;
+}
+.build__hash {
+  opacity: 0.65;
+}
+.build__icon {
+  height: 16px;
+  width: 16px;
+}
+.build__author:before {
+  content: "";
+  background-image: url("../../assets/icons/user.svg");
+  background-size: cover;
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  opacity: 0.3;
+}
+.build__author {
+  margin-bottom: 8px;
+}
+.build__time-container {
+  border-top: 1px solid #f0f2f3;
+  padding-top: 8px;
+  margin-left: 24px;
+  margin-bottom: 8px;
+}
+.build__date:before {
+  content: "";
+  background-image: url("../../assets/icons/calendar.svg");
+  background-size: cover;
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  opacity: 0.3;
+  position: absolute;
+  left: -20px;
+  top: -2px;
+}
+.build__date {
+  position: relative;
+  letter-spacing: 0.06px;
+  margin-left: 20px;
+  margin-right: 8px;
+}
+.build__buildTime {
+  position: relative;
+  letter-spacing: 0.06px;
+  margin-left: 20px;
+}
+.build__buildTime:before {
+  content: "";
+  background-image: url("../../assets/icons/stopwatch.svg");
+  background-size: cover;
+  height: 16px;
+  width: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  opacity: 0.3;
+  position: absolute;
+  left: -20px;
+  top: -2px;
+}
+.build__commit-info {
+  margin-bottom: 8px;
+}
+@media (min-width: 321px) {
+  .build__title-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .build__id {
+    margin-right: 4px;
+  }
+  .build__commit-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .build__head-container {
+    margin-right: 4px;
+    margin-bottom: 0;
+  }
+  .build__author {
+    margin-bottom: 0;
+  }
+  .build {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .build__time-container {
+    border: none;
+    padding: 0;
+    margin-left: 44px;
+    margin-bottom: 0;
+  }
+  .build__date {
+    display: block;
+    margin: 0 12px 12px 0;
+  }
+  .build__buildTime {
+    display: block;
+    margin: 0 12px 8px 0;
+  }
+}
