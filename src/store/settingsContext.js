@@ -5,7 +5,7 @@ import { settingsActionTypes as types } from "./settingsActionTypes";
 import { getLocalStorage, setLocalStorage } from "./utils/localStorage";
 
 const initialState = {
-  isSetted: false,
+  isConfigured: false,
   repository: "",
   buildCommand: "",
   branch: "",

@@ -14,11 +14,11 @@ import { SettingsContext } from '../../store/settingsContext';
 
 export function History(){
   const history = useHistory();
-  const {repository, isSetted} = useContext(SettingsContext);
+  const {repository, isConfigured} = useContext(SettingsContext);
 
   const [showModal, setShowModal] = useState(false);
 
-  if(!isSetted){
+  if(!isConfigured){
     history.push('/');
   }
 

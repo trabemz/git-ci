@@ -4,7 +4,7 @@ export function settingsReducer(state, { type, payload }) {
     case types.setSettings:
       return {
         ...state,
-        isSetted: true,
+        isConfigured: true,
         ...payload,
       };
     default:

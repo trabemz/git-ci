@@ -5,9 +5,9 @@ import {History} from '../History/History';
 import {React} from 'react';
 
 export function Home(){
-  const {isSetted} = useContext(SettingsContext);
+  const {isConfigured} = useContext(SettingsContext);
 
   return (
-    isSetted ? <History /> : <Start />
+    isConfigured ? <History /> : <Start />
   );
 }
