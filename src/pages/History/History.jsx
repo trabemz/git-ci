@@ -5,7 +5,8 @@ import { ToolButton } from '../../components/ToolButton/ToolButton';
 import { ReactComponent as SettingsIcon } from '../../assets/icons/settings.svg';
 import { ReactComponent as RunIcon } from '../../assets/icons/play.svg';
 import {Build} from '../../components/Build/Build';
-import {buildsMock} from './buildsMock'
+import {buildsMock} from './buildsMock';
+import {Button} from '../../components/Button/Button'
 
 import './History.css';
 import { SettingsContext } from '../../store/settingsContext';
@@ -23,6 +24,10 @@ export function History(){
   }
 
   const handleRunClick = () => {
+  }
+
+  const handleShowMore = () => {
+    setBuilds([...builds, ...buildsMock]);
   }
 
   const [builds, setBuilds] = useState([]);
@@ -46,10 +51,11 @@ export function History(){
       </Header>
       <main className='container history'>
         {
-          builds.map((build) => (
-            <Build key={build.id} {...build}/>
+          builds && builds.length > 0 && builds.map((build, index) => (
+            <Build key={index} {...build}/>
           ))
         }
+        <Button text='Show more' handleClick={handleShowMore}/>
       </main>
     </>
   );
