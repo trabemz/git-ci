@@ -2,5 +2,5 @@
 
 Yandex SHRI Homework #2 (React)
 
-ветка react-i - Верстка + React I
-ветка react-ii - Верстка + React II
+Ветка [react-i](../../tree/react-i) - Верстка + React I \
+Ветка [react-ii](../../tree/react-ii) - Верстка + React II
