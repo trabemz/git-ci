@@ -1,6 +1,5 @@
 import { Header } from '../../components/Header/Header';
 import { React, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { ToolButton } from '../../components/ToolButton/ToolButton';
 import { ReactComponent as SettingsIcon } from '../../assets/icons/settings.svg';
@@ -9,13 +8,14 @@ import { Build } from '../../components/Build/Build';
 import { buildsMock } from './buildsMock';
 import { Button } from '../../components/Button/Button';
 import { RunBuildModal } from '../../components/RunBuildModal/RunBuildModal';
+import store from '../../store/store';
 
 import './History.css';
 
 export function History() {
   const history = useHistory();
 
-  const { repository, isConfigured } = useSelector((state) => state.settings);
+  const { repository, isConfigured } = store.getState();
 
   const [showModal, setShowModal] = useState(false);
 

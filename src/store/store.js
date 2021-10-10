@@ -1,8 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
-import settingsReducer from './settingsSlice';
+import settingsReducer from './settingsReducer';
+import { createStore } from 'redux';
 
-export default configureStore({
-  reducer: {
-    settings: settingsReducer,
-  },
-});
+export default createStore(settingsReducer);

@@ -1,12 +1,12 @@
 import { Header } from '../../components/Header/Header';
 import { React, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import { InlineInput } from '../../components/InlineInput/InlineInput';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { setSettings } from '../../store/settingsSlice';
+import { setSettings } from '../../store/settingsReducer';
+import store from '../../store/store';
 
 import './Settings.css';
 
@@ -17,7 +17,7 @@ const emulateRepositoryCheck = async () => {
 
 export function Settings() {
   const history = useHistory();
-  const settings = useSelector((state) => state.settings);
+  const settings = store.getState();
   const dispatch = useDispatch();
 
   const [repository, setRepository] = useState(settings.repository);
