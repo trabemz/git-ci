@@ -29,7 +29,7 @@
 }
 .settings__error {
   margin-top: 22px;
-  color: var(--color-required);
+  color: var(--color-error);
 }
 .settings__header-title {
   line-height: 28px;

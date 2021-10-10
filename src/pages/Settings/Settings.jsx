@@ -1,21 +1,19 @@
 import { Header } from '../../components/Header/Header';
-import { React, useState, useContext } from 'react';
-import { SettingsContext } from '../../store/settingsContext';
+import { React, useState } from 'react';
 import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import { InlineInput } from '../../components/InlineInput/InlineInput';
+import { useHistory } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSettings } from '../../store/settingsReducer';
 
 import './Settings.css';
-import { useHistory } from 'react-router';
-
-const emulateRepositoryCheck = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  return Math.random() < 0.8;
-};
+import { fakeCloneRepository } from './fakeCloneRepository';
 
 export function Settings() {
   const history = useHistory();
-  const settings = useContext(SettingsContext);
+  const settings = useSelector((state) => state.settings);
+  const dispatch = useDispatch();
 
   const [repository, setRepository] = useState(settings.repository);
   const [buildCommand, setBuildCommand] = useState(settings.buildCommand);
@@ -49,20 +47,22 @@ export function Settings() {
       return;
     }
 
-    const resultOk = await emulateRepositoryCheck();
+    const result = await fakeCloneRepository();
 
-    if (resultOk) {
-      settings.setSettings({
-        repository,
-        buildCommand,
-        branch,
-        synchronizeInterval,
-      });
+    if (result.ok) {
+      dispatch(
+        setSettings({
+          repository,
+          buildCommand,
+          branch,
+          synchronizeInterval,
+        }),
+      );
       setIsPending(false);
       history.push('/history');
     } else {
       setIsPending(false);
-      setErrors((errors) => [...errors, 'Some error with GitHub repository.']);
+      setErrors((errors) => [...errors, result.statusText]);
     }
   };
 

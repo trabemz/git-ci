@@ -25,6 +25,10 @@ body {
   margin: 0 16px;
 }
 
+.error {
+  color: var(--color-error);
+}
+
 @media (min-width: 856px) {
   .container {
     width: 824px;

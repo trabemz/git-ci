@@ -22,4 +22,5 @@
   --color-link-hovered: #e00000;
 
   --color-required: var(--color-text-commit-fail);
+  --color-error: var(--color-text-commit-fail);
 }
