@@ -23,7 +23,7 @@ export function RunBuildModal(props) {
           setValue={setHash}
         />
         <div className="run-build__buttons">
-          <Button text="Save" handleClick={handleClose} modificator="action" />
+          <Button text="Run build" handleClick={handleClose} modificator="action" />
           <Button text="Cancel" handleClick={handleClose} />
         </div>
       </form>

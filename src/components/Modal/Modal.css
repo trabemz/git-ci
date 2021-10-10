@@ -12,11 +12,11 @@
 
 .modal__content {
   background-color: var(--color-bg-base);
-  margin: 35vh auto;
-  padding: 20px 17.5px;
+  margin: 36vh auto;
+  padding: 15px 20px 20px 20px;
   border: none;
   box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3),
     0px 6px 16px rgba(67, 68, 69, 0.3);
   border-radius: 4px;
-  max-width: 485px;
+  max-width: 450px;
 }

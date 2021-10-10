@@ -23,7 +23,7 @@
   height: 28px;
 }
 
-@media (min-width: 321px) {
+@media (min-width: 481px) {
   .tool-button__text {
     display: inline-block;
   }

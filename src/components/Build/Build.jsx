@@ -4,6 +4,7 @@ import { ReactComponent as DoneIcon } from '../../assets/icons/done.svg';
 import { ReactComponent as FailIcon } from '../../assets/icons/fail.svg';
 import { ReactComponent as PendingIcon } from '../../assets/icons/clock.svg';
 import { PropTypes } from 'prop-types';
+import {ru} from 'date-fns/locale';
 
 import './Build.css';
 
@@ -37,10 +38,10 @@ export function Build(props) {
         </div>
       </div>
       <div className="build__time-container">
-        <span className="build__date">{format(date, 'dd MMM, hh:mm')}</span>
+        <span className="build__date">{format(date, 'dd MMM, hh:mm', {locale: ru})}</span>
         <span className="build__buildTime">
-          {duration.hours > 0 && duration.hours + ' h '}
-          {duration.minutes > 0 && duration.minutes + ' min'}
+          {duration.hours > 0 && duration.hours + ' ч '}
+          {duration.minutes > 0 && duration.minutes + ' мин'}
         </span>
       </div>
     </div>

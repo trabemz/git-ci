@@ -3,18 +3,30 @@
   display: grid;
   justify-content: center;
   align-content: center;
+  padding-bottom: 29px;
 }
 
 .start__section {
-  width: 264px;
+  width: 288px;
   height: 248px;
 }
 
 .start__configure-logo {
-  margin: 0 0 32px;
+  padding-top: 5px;
+  margin: 0 0 27px;
 }
 
 .start__text {
   margin: 0 0 24px;
   line-height: 16.25px;
+}
+
+@media (min-width: 481px) {
+  .start {
+    padding-bottom: 42px;
+  }
+  .start__configure-logo {
+    padding-top: 3px;
+    margin: 0 0 28px;
+  }
 }
