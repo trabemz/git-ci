@@ -35,3 +35,10 @@
   outline: none;
   box-shadow: inset 0 0 0 2px var(--color-border-action-focused);
 }
+
+@media (min-width: 769px) {
+  .run-build__buttons .button--action {
+    width: 104px;
+    padding-left: 22px;
+  }
+}

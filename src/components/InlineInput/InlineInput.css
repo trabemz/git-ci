@@ -1,5 +1,6 @@
 .inline-input__field {
   display: inline-block;
+  padding: 3px 13px 0 10px;
 }
 
 input[type='number']::-webkit-outer-spin-button,

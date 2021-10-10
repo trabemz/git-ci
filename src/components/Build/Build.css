@@ -1,5 +1,5 @@
 .build {
-  padding: 16px 12px 4px 16px;
+  padding: 16px 12px 16px 12px;
   box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3),
     0px 1px 1px rgba(67, 68, 69, 0.3);
   border-radius: 6px;
@@ -21,7 +21,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
   display: block;
 }
 .build__id--done {
@@ -38,6 +38,7 @@
   font-size: 15px;
   line-height: 20px;
   margin-bottom: 8px;
+  letter-spacing: 0.025px;
 }
 .build__head-container {
   margin-bottom: 8px;
@@ -74,14 +75,11 @@
   margin-right: 4px;
   opacity: 0.3;
 }
-.build__author {
-  margin-bottom: 8px;
-}
+
 .build__time-container {
   border-top: 1px solid #f0f2f3;
-  padding-top: 8px;
+  padding-top: 7px;
   margin-left: 24px;
-  margin-bottom: 8px;
 }
 .build__date:before {
   content: '';
@@ -125,18 +123,22 @@
 .build__commit-info {
   margin-bottom: 8px;
 }
-@media (min-width: 321px) {
+@media (min-width: 769px) {
   .build__title-container {
     display: flex;
     flex-wrap: wrap;
   }
   .build__id {
     margin-right: 4px;
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 20px;
   }
   .build__commit-info {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-bottom: 0px;
   }
   .build__head-container {
     margin-right: 4px;
@@ -149,6 +151,11 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 12px 24px 11.4px 24px;
+  }
+  .build__icon {
+    height: 24px;
+    width: 24px;
   }
   .build__time-container {
     border: none;
@@ -158,10 +165,10 @@
   }
   .build__date {
     display: block;
-    margin: 0 12px 12px 0;
+    margin: 0 0 12px 0;
   }
   .build__buildTime {
     display: block;
-    margin: 0 12px 8px 0;
+    margin: 0 0 0 0;
   }
 }

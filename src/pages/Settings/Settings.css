@@ -11,16 +11,17 @@
   margin: 20px 0;
 }
 .settings__title {
-  margin: 8px 0;
+  margin: 0 0 8px 0;
   font-size: 15px;
   line-height: 20px;
   font-weight: 700;
 }
 .settings__description {
   margin: 0;
+  line-height: 18px;
 }
 .settings__form {
-  margin: 22px 0;
+  margin: 15px 0 8px 0;
 }
 .settings__buttons button {
   width: 100%;
@@ -30,13 +31,25 @@
   margin-top: 22px;
   color: var(--color-error);
 }
+.settings__header-title {
+  line-height: 28px;
+}
+.settings__synchronize {
+  margin: 0 0 20px;
+}
+.settings__form .input__container:last-of-type {
+  margin: 0 0 16px 0;
+}
 
-@media (min-width: 320px) {
+@media (min-width: 481px) {
   .settings__buttons button {
     margin: 0 8px 0 0;
     width: min-content;
   }
   .settings__synchronize {
-    margin: 20px 0 24px;
+    margin: 20px 0 25px;
+  }
+  .settings__form {
+    margin: 22px 0 0 0;
   }
 }
