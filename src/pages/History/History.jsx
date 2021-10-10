@@ -8,7 +8,7 @@ import { Build } from '../../components/Build/Build';
 import { buildsMock } from './buildsMock';
 import { Button } from '../../components/Button/Button';
 import { RunBuildModal } from '../../components/RunBuildModal/RunBuildModal';
-import store from '../../store/store';
+import { store } from '../../store/store';
 
 import './History.css';
 

@@ -1,12 +1,10 @@
-import { getLocalStorage, setLocalStorage } from './utils/localStorage';
-
-const initialState = getLocalStorage('settings', {
+const initialState = {
   isConfigured: false,
   repository: '',
   buildCommand: '',
   branch: '',
   synchronizeInterval: 10,
-});
+};
 
 const ACTION = {
   SET_SETTINGS: 'SET_SETTINGS',
@@ -19,7 +17,6 @@ export default function settingsReducer(state = initialState, action) {
         isConfigured: true,
         ...action.payload,
       };
-      setLocalStorage('settings', newState);
       return newState;
     }
     default:

@@ -6,7 +6,7 @@ import { InlineInput } from '../../components/InlineInput/InlineInput';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { setSettings } from '../../store/settingsReducer';
-import store from '../../store/store';
+import { store } from '../../store/store';
 
 import './Settings.css';
 
