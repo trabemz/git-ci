@@ -28,8 +28,9 @@ export function Settings() {
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = async () => {
+    setIsPending(true);
     setErrors([]);
-    console.log(repository);
+
     if (!repository || !buildCommand) {
       setErrors((errors) => [
         ...errors,
@@ -57,12 +58,12 @@ export function Settings() {
         branch,
         synchronizeInterval,
       });
+      setIsPending(false);
       history.push('/history');
     } else {
+      setIsPending(false);
       setErrors((errors) => [...errors, 'Some error with GitHub repository.']);
     }
-
-    setIsPending(false);
   };
 
   const handleCancel = () => {
@@ -72,7 +73,9 @@ export function Settings() {
   return (
     <>
       <Header>
-        <h1 className="header__title settings__header-title">School CI server</h1>
+        <h1 className="header__title settings__header-title">
+          School CI server
+        </h1>
       </Header>
       <main className="settings container">
         <section className="settings__content ">
