@@ -5,17 +5,22 @@ import { ToolButton } from '../../components/ToolButton/ToolButton';
 import { ReactComponent as SettingsIcon } from '../../assets/icons/settings.svg';
 import { ReactComponent as RunIcon } from '../../assets/icons/play.svg';
 import { Build } from '../../components/Build/Build';
-import { buildsMock } from './buildsMock';
 import { Button } from '../../components/Button/Button';
 import { RunBuildModal } from '../../components/RunBuildModal/RunBuildModal';
-import { store } from '../../store/store';
+import { fetchBuilds, loadMoreBuilds } from '../../store/buildsActions';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './History.css';
 
 export function History() {
   const history = useHistory();
 
-  const { repository, isConfigured } = store.getState();
+  const dispatch = useDispatch();
+
+  const { repository, isConfigured, synchronizeInterval } = useSelector(
+    (state) => state.settings,
+  );
+  const { builds, error } = useSelector((state) => state.builds);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -35,14 +40,16 @@ export function History() {
     setShowModal(false);
   };
 
-  const handleShowMore = () => {
-    setBuilds([...builds, ...buildsMock]);
+  const handleShowMore = async () => {
+    dispatch(loadMoreBuilds());
   };
 
-  const [builds, setBuilds] = useState([]);
-
   useEffect(() => {
-    setBuilds(buildsMock);
+    dispatch(fetchBuilds());
+    const intervalId = setInterval(() => {
+      dispatch(fetchBuilds());
+    }, synchronizeInterval * 60 * 1000);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
@@ -63,13 +70,14 @@ export function History() {
         </div>
       </Header>
       <main className="container history">
+        {error && <p className="error">{error.message}</p>}
         {
           /*when there are real builds, rewrite the key to id*/
           builds &&
             builds.length > 0 &&
             builds.map((build, index) => <Build key={index} {...build} />)
         }
-        <Button text="Show more" handleClick={handleShowMore} />
+        {!error && <Button text="Show more" handleClick={handleShowMore} />}
       </main>
       {showModal && <RunBuildModal handleClose={handleCloseModal} />}
     </>

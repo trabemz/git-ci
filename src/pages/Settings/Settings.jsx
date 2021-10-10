@@ -4,20 +4,15 @@ import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import { InlineInput } from '../../components/InlineInput/InlineInput';
 import { useHistory } from 'react-router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setSettings } from '../../store/settingsReducer';
-import { store } from '../../store/store';
 
 import './Settings.css';
-
-const emulateRepositoryCheck = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  return Math.random() < 0.8;
-};
+import { fakeCloneRepository } from './fakeCloneRepository';
 
 export function Settings() {
   const history = useHistory();
-  const settings = store.getState();
+  const settings = useSelector((state) => state.settings);
   const dispatch = useDispatch();
 
   const [repository, setRepository] = useState(settings.repository);
@@ -31,8 +26,9 @@ export function Settings() {
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = async () => {
+    setIsPending(true);
     setErrors([]);
-    console.log(repository);
+
     if (!repository || !buildCommand) {
       setErrors((errors) => [
         ...errors,
@@ -51,9 +47,9 @@ export function Settings() {
       return;
     }
 
-    const resultOk = await emulateRepositoryCheck();
+    const result = await fakeCloneRepository();
 
-    if (resultOk) {
+    if (result.ok) {
       dispatch(
         setSettings({
           repository,
@@ -62,12 +58,12 @@ export function Settings() {
           synchronizeInterval,
         }),
       );
+      setIsPending(false);
       history.push('/history');
     } else {
-      setErrors((errors) => [...errors, 'Some error with GitHub repository.']);
+      setIsPending(false);
+      setErrors((errors) => [...errors, result.statusText]);
     }
-
-    setIsPending(false);
   };
 
   const handleCancel = () => {

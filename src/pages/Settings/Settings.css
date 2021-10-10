@@ -28,7 +28,7 @@
 }
 .settings__error {
   margin-top: 22px;
-  color: var(--color-required);
+  color: var(--color-error);
 }
 
 @media (min-width: 320px) {

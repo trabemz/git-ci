@@ -1,10 +1,10 @@
 import { Start } from '../Start/Start';
 import { History } from '../History/History';
 import { React } from 'react';
-import { store } from '../../store/store';
+import { useSelector } from 'react-redux';
 
 export function Home() {
-  const { isConfigured } = store.getState();
+  const { isConfigured } = useSelector((state) => state.settings);
 
   return isConfigured ? <History /> : <Start />;
 }

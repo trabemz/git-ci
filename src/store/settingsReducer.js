@@ -6,25 +6,22 @@ const initialState = {
   synchronizeInterval: 10,
 };
 
-const ACTION = {
-  SET_SETTINGS: 'SET_SETTINGS',
-};
-
 export default function settingsReducer(state = initialState, action) {
   switch (action.type) {
-    case ACTION.SET_SETTINGS: {
-      const newState = {
+    case SET_SETTINGS:
+      return {
         isConfigured: true,
         ...action.payload,
       };
-      return newState;
-    }
+
     default:
       return state;
   }
 }
 
+const SET_SETTINGS = 'SET_SETTINGS';
+
 export const setSettings = (payload) => ({
-  type: ACTION.SET_SETTINGS,
+  type: SET_SETTINGS,
   payload: payload,
 });

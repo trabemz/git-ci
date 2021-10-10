@@ -1,16 +1,23 @@
 import settingsReducer from './settingsReducer';
+import buildsReducer from './buildsReducer';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
 
 const persistConfig = {
-  key: 'settings',
+  key: 'root',
   storage,
 };
 
-const persistedSettingsReducer = persistReducer(persistConfig, settingsReducer);
+let combinedReducer = combineReducers({
+  settings: settingsReducer,
+  builds: buildsReducer,
+});
 
-let store = createStore(persistedSettingsReducer);
+const persistedReducer = persistReducer(persistConfig, combinedReducer);
+
+let store = createStore(persistedReducer, applyMiddleware(thunk));
 let persistor = persistStore(store);
 
 export { store, persistor };
