@@ -1,6 +1,7 @@
 .tool-button {
   line-height: 28px;
   padding: 0;
+  white-space: nowrap;
 }
 .tool-button__icon-container {
   display: inline-block;
