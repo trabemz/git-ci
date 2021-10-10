@@ -12,7 +12,6 @@ export const settingsSlice = createSlice({
   }),
   reducers: {
     setSettings: (state, action) => {
-      console.log(action.payload);
       const newState = {
         isConfigured: true,
         ...action.payload,
