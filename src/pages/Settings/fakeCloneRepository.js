@@ -12,6 +12,6 @@ export function fakeCloneRepository() {
               statusText: 'Ok',
             },
       );
-    }, 2000);
+    }, Math.floor(Math.random() * 2000));
   });
 }

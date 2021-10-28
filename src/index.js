@@ -6,6 +6,7 @@ import App from './App';
 import './css/fonts.css';
 import './css/variables/color.css';
 import './index.css';
+import './stats';
 
 ReactDOM.render(
   <React.StrictMode>

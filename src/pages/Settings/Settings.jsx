@@ -9,6 +9,7 @@ import { setSettings } from '../../store/settingsReducer';
 
 import './Settings.css';
 import { fakeCloneRepository } from './fakeCloneRepository';
+import { counter } from '../../stats';
 
 export function Settings() {
   const history = useHistory();
@@ -46,8 +47,9 @@ export function Settings() {
       setIsPending(false);
       return;
     }
-
+    let timeStart = Date.now();
     const result = await fakeCloneRepository();
+    counter.send('clone', Date.now() - timeStart);
 
     if (result.ok) {
       dispatch(
@@ -59,7 +61,7 @@ export function Settings() {
         }),
       );
       setIsPending(false);
-      history.push('/history');
+      history.push('/');
     } else {
       setIsPending(false);
       setErrors((errors) => [...errors, result.statusText]);

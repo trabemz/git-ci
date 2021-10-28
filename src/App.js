@@ -4,7 +4,6 @@ import { Footer } from './components/Footer/Footer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './pages/Home/Home';
 import { Settings } from './pages/Settings/Settings';
-import { History } from './pages/History/History';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './store/store';
@@ -19,7 +18,6 @@ function App() {
               <Home />
             </Route>
             <Route path="/settings" component={Settings}></Route>
-            <Route path="/history" component={History}></Route>
           </Switch>
         </PersistGate>
       </Provider>
